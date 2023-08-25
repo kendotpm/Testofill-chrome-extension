@@ -10,6 +10,23 @@ I also added two new functions for use in the configuration of the chrome extens
 1. `$quick_timestamp` will return `M_D_YYYY-HH_MM` (useful for tacking on a timestamp to an email)
 2. `$extract_id_value` will pull a value out of the input of the passed in `ID`
 
+#### Example
+
+```json
+          {
+            "query" : "#your_input_here",
+            "generate" : [
+              "hello+testing_", 
+              ["$extract_id_value", "ID_OF_INPUT_HERE"],
+              "-",
+              ["$quick_timestamp"],
+              "@ken.pm"
+            ]
+          }
+```
+#### Returns
+`hello+testing_<VALUE_FROM_INPUT_ID>-8_24_2023-22_55@ken.pm`
+
 I made these changes for use in PM work. The utility functions are likely not all that useful for anyone else.
 
 ---
