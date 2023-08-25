@@ -1,6 +1,19 @@
 ![icon](src/extension/autofill_16x16.png) Testofill, the Form Filler for Testers Chrome Extension
 =======================================================================================
 
+### Note About This Fork
+
+This fork is primarily for my personal use in the day-to-day PM work and the Chance.js library was horribly out of date, missing a metric ton of the awesome things they'd added (and I wanted) over the years.
+
+I also added two new functions for use in the configuration of the chrome extension:
+
+1. `$quick_timestamp` will return `M_D_YYYY-HH_MM` (useful for tacking on a timestamp to an email)
+2. `$extract_id_value` will pull a value out of the input of the passed in `ID`
+
+I made these changes for use in PM work. The utility functions are likely not all that useful for anyone else.
+
+---
+
 [Install Testofill from Chrome Web Store](https://chrome.google.com/webstore/detail/testofill-form-filler-for/pkgdgajoinhkfldibdaledjikboognnl?hl=en-US)
 
 Goal: Enable testers to fill forms automatically/on-demand with predefined and/or generated values.
