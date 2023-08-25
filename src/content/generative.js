@@ -7,6 +7,21 @@
 //   "chance.pick": [chance.pick, chance]
 // };
 
+var quick_timestamp = function(){
+  var date = new Date();
+  return (date.getMonth() + 1) + '_' + date.getDate() + '_' + date.getFullYear() + '-' + date.getHours() + '_' + date.getMinutes();
+}
+
+var extract_id_value = function(cssid){
+  return document.getElementById(cssid).value.replaceAll("'", "").replaceAll(' ', '_')
+}
+
+var kensFns = {
+  '$quick_timestamp': [quick_timestamp, null],
+  '$extract_id_value': [extract_id_value, null]
+}
+
+
 var chanceFns = _.chain(chance)
   .functions()
   .map(function(name){
@@ -20,7 +35,7 @@ var generativeFns = {
   'identity': [function(v) {return v;}, null]
 };
 
-var generateFns = _.extend({}, chanceFns, generativeFns);
+var generateFns = _.extend({}, chanceFns, generativeFns, kensFns);
 
 function parseTopGenExpr(expr) {
 
